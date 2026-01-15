@@ -15,18 +15,14 @@ const Login: React.FC = () => {
   const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
+  e.preventDefault();
 
-    // Simulate loading
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  toast.error('Access Restricted', {
+    description: 'Login is currently disabled...',
+  });
 
-    login(email);
-    toast.success('Welcome back', {
-      description: 'Secure connection established',
-    });
-    navigate('/dashboard');
-  };
+  return; // 🚫 stops login completely
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy via-navy-light to-navy flex flex-col">
