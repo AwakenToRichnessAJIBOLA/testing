@@ -14,7 +14,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   if (!email.trim()) {
@@ -24,6 +24,16 @@ const Login: React.FC = () => {
 
   if (!password.trim()) {
     toast.error("Password is required");
+    return;
+  }
+
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+
+  if (!passwordRegex.test(password)) {
+    toast.error(
+      "Password must contain an uppercase letter, a number, a special character, and be at least 8 characters long."
+    );
     return;
   }
 
