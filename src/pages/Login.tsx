@@ -17,11 +17,29 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  toast.error('Access Restricted', {
-    description: 'Login is currently disabled...',
-  });
+  if (!email.trim()) {
+    toast.error("Email is required");
+    return;
+  }
 
-  return; // 🚫 stops login completely
+  if (!password.trim()) {
+    toast.error("Password is required");
+    return;
+  }
+
+  setIsLoading(true);
+
+  try {
+    login(email);
+
+    toast.success("Login successful");
+
+    navigate("/dashboard");
+  } catch (error) {
+    toast.error("Login failed");
+  } finally {
+    setIsLoading(false);
+  }
 };
 
   return (
@@ -81,6 +99,7 @@ const Login: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all placeholder:text-muted-foreground pr-12"
                   />
                   <button
