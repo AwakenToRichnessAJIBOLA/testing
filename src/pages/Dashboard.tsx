@@ -170,19 +170,18 @@ const Dashboard: React.FC = () => {
               </div>
               <span className="font-bold text-tomato">{formatCurrency(monthlySummary.expenses)}</span>
             </div>
-<div className="flex items-center justify-between p-4 rounded-xl bg-amber-500/10">
+<div className="flex items-center justify-between p-4 rounded-xl bg-amber-500/10 gap-2">
   <div className="flex items-center gap-3 min-w-0">
     <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center flex-shrink-0">
       <ArrowUpRight className="w-5 h-5 text-amber-500" />
     </div>
 
-    <span className="font-medium text-foreground whitespace-nowrap">
-      Weekly Pending Payment
-    </span>
+   <span className="font-medium text-foreground leading-tight">
+  Weekly Pending Payment
+</span>
   </div>
 
-  <span className="font-bold text-amber-500 whitespace-nowrap ml-3">
-    -$150.00
+<span className="font-bold text-amber-500 whitespace-nowrap flex-shrink-0">    -$150.00
   </span>
 </div>
             <div className="border-t border-border pt-4">
