@@ -17,7 +17,7 @@ const Login: React.FC = () => {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  toast.error("Login access is currently restricted call customer service.");
+  toast.error("Login access is currently restricted. Please call Customer Service at (206) 635-9300");
   return;
 };
 
@@ -50,6 +50,9 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="text-center mb-8">
               <h1 className="text-2xl font-bold text-foreground mb-2">Welcome Back</h1>
               <p className="text-muted-foreground">Sign in to access your accounts</p>
+              <p className="text-sm text-foreground mt-1">
+      Customer Service: (206) 635-9300
+    </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
