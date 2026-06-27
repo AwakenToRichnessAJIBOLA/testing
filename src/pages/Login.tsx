@@ -16,41 +16,12 @@ const Login: React.FC = () => {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  if (!email.trim()) {
-    toast.error("Email is required");
-    return;
-  }
+  toast.error(
+    "Login access is currently restricted. Please call Customer Service at (206) 635-9300."
+  );
 
-  if (!password.trim()) {
-    toast.error("Password is required");
-    return;
-  }
-
-  const passwordRegex =
-    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
-
-  if (!passwordRegex.test(password)) {
-    toast.error(
-      "Password must contain an uppercase letter, a number, a special character, and be at least 8 characters long."
-    );
-    return;
-  }
-
-  setIsLoading(true);
-
-  try {
-    login(email);
-
-    toast.success("Login successful");
-
-    navigate("/dashboard");
-  } catch (error) {
-    toast.error("Login failed");
-  } finally {
-    setIsLoading(false);
-  }
+  return;
 };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy via-navy-light to-navy flex flex-col">
       {/* Background decoration */}
